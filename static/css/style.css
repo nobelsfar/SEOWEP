@@ -1590,21 +1590,6 @@ header h1 {
         width: 95%;
         margin: 10% auto;
     }
-    /* Mobile Generator Layout Fix */
-.generator-layout {
-    flex-direction: column !important;
-    gap: 20px;
-}
-
-.left-panel, .right-panel {
-    flex: none !important;
-    width: 100% !important;
-    min-width: auto !important;
-    max-width: none !important;
-}
-
-.splitter {
-    display: none !important;
 }
 
 /* Utility Classes */
