@@ -12,17 +12,11 @@
 </head>
 <body>
     <div class="container">
-        <header class="app-header">
-            <div class="brand">
-                <span class="brand-badge" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
-                <div class="brand-copy">
-                    <h1>Professionel SEO IndholdsGenerator</h1>
-                    <p>Designet til at skabe gennemarbejdet indhold med et moderne arbejdsflow</p>
-                </div>
-            </div>
-            <div class="header-actions">
-                <span class="profile-chip"><i class="fas fa-user-circle" aria-hidden="true"></i><span id="current-profile">Ingen profil valgt</span></span>
-                <button id="settings-btn" class="btn-ghost"><i class="fas fa-sliders-h" aria-hidden="true"></i><span>Indstillinger</span></button>
+        <header>
+            <h1>Professionel SEO IndholdsGenerator</h1>
+            <div class="profile-status">
+                <span id="current-profile">Ingen profil valgt</span>
+                <button id="settings-btn" class="btn-secondary"><i class="fas fa-sliders-h" aria-hidden="true"></i><span> Indstillinger</span></button>
             </div>
         </header>
 
@@ -37,151 +31,141 @@
         <div id="generator" class="tab-content active">
             <div class="generator-layout">
                 <div class="left-panel" id="left-panel">
-                    <section class="panel-card">
-                        <div class="panel-card-header">
-                            <h2>Strategi & nøgleord</h2>
-                            <p>Definér fokus og vigtige begreber for teksten</p>
-                        </div>
-                        <div class="field-grid two-column">
-                            <div class="form-group full-span">
-                                <label for="keywords">Nøgleord (påkrævet)</label>
-                                <input type="text" id="keywords" placeholder="Indtast primære nøgleord..." required>
-                            </div>
-                            <div class="form-group">
-                                <label for="secondary-keywords">Sekundære nøgleord</label>
-                                <input type="text" id="secondary-keywords" placeholder="Kommaseparerede nøgleord...">
-                            </div>
-                            <div class="form-group">
-                                <label for="lsi-keywords">LSI nøgleord</label>
-                                <input type="text" id="lsi-keywords" placeholder="Relaterede nøgleord...">
-                            </div>
-                            <div class="form-group full-span">
-                                <label for="custom-instructions">Generelle instruktioner</label>
-                                <textarea id="custom-instructions" rows="3" placeholder="Indtast specifikke instruktioner til AI'en..."></textarea>
-                            </div>
-                        </div>
-                    </section>
+                    <!-- Keywords Section -->
+                    <div class="form-group">
+                        <label for="keywords">Nøgleord (påkrævet):</label>
+                        <input type="text" id="keywords" placeholder="Indtast primære nøgleord..." required>
+                    </div>
 
-                    <section class="panel-card">
-                        <div class="panel-card-header">
-                            <h2>Indholdsopsætning</h2>
-                            <p>Finjustér målgruppe, tone og længde</p>
-                        </div>
-                        <div class="field-grid two-column">
-                            <div class="form-group">
-                                <label for="target-audience">Målgruppe</label>
-                                <select id="target-audience">
-                                    <option value="Alle">Alle</option>
-                                    <option value="B2B">B2B</option>
-                                    <option value="B2C">B2C</option>
-                                    <option value="Håndværkere">Håndværkere</option>
-                                    <option value="Forbrugere">Forbrugere</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="content-purpose">Formål</label>
-                                <select id="content-purpose">
-                                    <option value="Informativ">Informativ</option>
-                                    <option value="Salgsorienteret">Salgsorienteret</option>
-                                    <option value="Vejledning">Vejledning</option>
-                                    <option value="Sammenligning">Sammenligning</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="content-type">Indholdstype</label>
-                                <select id="content-type">
-                                    <option value="Produktbeskrivelse">Produktbeskrivelse</option>
-                                    <option value="Features & Benefits">Features & Benefits</option>
-                                    <option value="How-to guide">How-to guide</option>
-                                    <option value="Comparison">Sammenligning</option>
-                                    <option value="Expert analysis">Ekspertanalyse</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="text-length">Ønsket tekstlængde (ord)</label>
-                                <input type="number" id="text-length" min="100" max="5000" value="500">
-                            </div>
-                        </div>
-                    </section>
+                    <!-- Secondary Keywords -->
+                    <div class="form-group">
+                        <label for="secondary-keywords">Sekundære nøgleord:</label>
+                        <input type="text" id="secondary-keywords" placeholder="Kommaseparerede nøgleord...">
+                    </div>
 
-                    <section class="panel-card">
-                        <div class="panel-card-header">
-                            <h2>SEO elementer</h2>
-                            <p>Tilføj ekstra komponenter til din tekst</p>
-                        </div>
+                    <!-- LSI Keywords -->
+                    <div class="form-group">
+                        <label for="lsi-keywords">LSI Nøgleord:</label>
+                        <input type="text" id="lsi-keywords" placeholder="Relaterede nøgleord...">
+                    </div>
+
+                    <!-- Content Settings -->
+                    <div class="form-group">
+                        <label for="target-audience">Målgruppe:</label>
+                        <select id="target-audience">
+                            <option value="Alle">Alle</option>
+                            <option value="B2B">B2B</option>
+                            <option value="B2C">B2C</option>
+                            <option value="Håndværkere">Håndværkere</option>
+                            <option value="Forbrugere">Forbrugere</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content-purpose">Formål:</label>
+                        <select id="content-purpose">
+                            <option value="Informativ">Informativ</option>
+                            <option value="Salgsorienteret">Salgsorienteret</option>
+                            <option value="Vejledning">Vejledning</option>
+                            <option value="Sammenligning">Sammenligning</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content-type">Indholdstype:</label>
+                        <select id="content-type">
+                            <option value="Produktbeskrivelse">Produktbeskrivelse</option>
+                            <option value="Features & Benefits">Features & Benefits</option>
+                            <option value="How-to guide">How-to guide</option>
+                            <option value="Comparison">Sammenligning</option>
+                            <option value="Expert analysis">Ekspertanalyse</option>
+                        </select>
+                    </div>
+
+                    <!-- Custom Instructions -->
+                    <div class="form-group">
+                        <label for="custom-instructions">Generelle Instruktioner:</label>
+                        <textarea id="custom-instructions" rows="3" placeholder="Indtast specifikke instruktioner til AI'en..."></textarea>
+                    </div>
+
+                    <!-- Text Length -->
+                    <div class="form-group">
+                        <label for="text-length">Ønsket tekstlængde (ord):</label>
+                        <input type="number" id="text-length" min="100" max="5000" value="500">
+                    </div>
+
+                    <!-- SEO Features -->
+                    <div class="form-group">
+                        <label>SEO Features:</label>
                         <div class="checkbox-group">
-                            <label class="checkbox-pill"><input type="checkbox" id="include-meta"><span>Meta beskrivelse</span></label>
-                            <label class="checkbox-pill"><input type="checkbox" id="include-keywords"><span>Keyword integration</span></label>
-                            <label class="checkbox-pill"><input type="checkbox" id="include-faq"><span>FAQ sektion</span></label>
-                            <label class="checkbox-pill"><input type="checkbox" id="include-cta"><span>Call-to-action</span></label>
-                            <label class="checkbox-pill"><input type="checkbox" id="include-schema"><span>Schema markup</span></label>
-                            <label class="checkbox-pill"><input type="checkbox" id="include-internal-links"><span>Interne links</span></label>
+                                                            <label><input type="checkbox" id="include-meta"> Meta beskrivelse</label>
+                                <label><input type="checkbox" id="include-keywords"> Keyword integration</label>
+                                <label><input type="checkbox" id="include-faq"> FAQ sektion</label>
+                                <label><input type="checkbox" id="include-cta"> Call-to-action</label>
+                                <label><input type="checkbox" id="include-schema"> Schema markup</label>
+                                <label><input type="checkbox" id="include-internal-links"> Interne links</label>
                         </div>
-                    </section>
+                    </div>
 
-                    <section class="panel-card">
-                        <div class="panel-card-header">
-                            <h2>Produkter</h2>
-                            <p>Vælg hvilke produkter der skal fremhæves i teksten</p>
-                        </div>
+                    <!-- Product Selection -->
+                    <div class="form-group">
+                        <label>Inkluder Produkter:</label>
                         <div id="product-selection" class="product-list">
                             <!-- Products will be populated here -->
                         </div>
-                    </section>
+                    </div>
 
-                    <section class="panel-card action-card">
-                        <div class="primary-actions">
-                            <button id="generate-btn" type="button" class="btn-primary generate-btn">
-                                <span class="btn-text">Generer SEO Tekst</span>
-                                <span class="btn-loading">Genererer...</span>
-                            </button>
-                        </div>
+                    <!-- Generate Buttons -->
+                    <div class="button-group">
+                        <button id="generate-btn" type="button" class="generate-btn">
+                            <span class="btn-text">Generer SEO Tekst</span>
+                            <span class="btn-loading">Genererer...</span>
+                        </button>
+                        
+                        <!-- Batch Generate Section -->
                         <div class="batch-generate-section">
                             <div class="batch-header">
                                 <h3>Generer flere variationer</h3>
-                                <p>Lav flere forskellige tekster på én gang med automatisk variation</p>
+                                <p>Lav flere forskellige tekster på en gang med automatisk variation</p>
                             </div>
                             <div class="batch-controls">
-                                <label for="batch-count">Antal tekster</label>
+                                <label for="batch-count">Antal tekster:</label>
                                 <select id="batch-count">
                                     <option value="2">2 variationer</option>
                                     <option value="3" selected>3 variationer</option>
                                     <option value="4">4 variationer</option>
                                     <option value="5">5 variationer</option>
                                 </select>
-                                <button id="batch-generate-btn" type="button" class="btn-secondary batch-generate-btn">
-                                    <span class="btn-text">Generer batch</span>
+                                <button id="batch-generate-btn" type="button" class="batch-generate-btn">
+                                    <span class="btn-text">Generer Batch</span>
                                     <span class="btn-loading">Genererer variationer...</span>
                                 </button>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 </div>
 
                 <div class="splitter" id="splitter" title="Træk for at ændre størrelse på panelerne. Dobbeltklik for at nulstille til 50/50."></div>
 
                 <div class="right-panel" id="right-panel">
                     <!-- Preview Section (moved from Preview tab) -->
-                    <div class="panel-card preview-section">
+                    <div class="preview-section">
                         <div class="preview-header">
-                            <div class="preview-title">
-                                <h3>Forhåndsvisning</h3>
-                                <p>Arbejd videre med dine genererede tekster, og gem eller eksportér dem direkte</p>
-                            </div>
+                            <h3>Forhåndsvisning</h3>
                             <div class="preview-controls">
                                 <select id="preview-selector">
                                     <option value="">Vælg tekst at redigere...</option>
                                 </select>
-                                <button id="clear-preview-btn" class="btn-ghost">Ryd liste</button>
-                                <button id="copy-text-btn" class="btn-ghost">Kopier tekst</button>
-                                <button id="copy-html-btn" class="btn-ghost">Kopier HTML</button>
-                                <button id="save-text-btn" class="btn-primary btn-compact">Gem tekst</button>
-                                <button id="insert-image-btn" class="btn-ghost">Vælg hovedbillede</button>
+                                <button id="clear-preview-btn" class="btn-small">Ryd Liste</button>
+                                <button id="copy-text-btn" class="btn-small">Kopier Tekst</button>
+                                <button id="copy-html-btn" class="btn-small">Kopier HTML</button>
+                                <button id="save-text-btn" class="btn-small">Gem Tekst</button>
+                                <button id="insert-image-btn" class="btn-small">Vælg Hovedbillede</button>
                             </div>
-                        </div>
-                        <div id="featured-image-indicator" class="featured-image-indicator" style="display: none;">
-                            <span>Hovedbillede valgt: <span id="featured-image-title"></span></span>
-                            <button id="clear-featured-image-btn" class="btn-ghost btn-tiny" aria-label="Fjern valgt billede">Fjern</button>
+                            <div id="featured-image-indicator" class="featured-image-indicator" style="display: none;">
+                                <span>Hovedbillede valgt: <span id="featured-image-title"></span></span>
+                                <button id="clear-featured-image-btn" class="btn-tiny" aria-label="Fjern valgt billede">Fjern</button>
+                            </div>
                         </div>
 
                         <!-- Website Preview with Editing -->
@@ -349,11 +333,11 @@
                     </div>
 
                     <!-- Revision Section -->
-                    <div class="panel-card revision-section">
-                        <h4>Revider tekst</h4>
+                    <div class="revision-section">
+                        <h4>Revider Tekst</h4>
                         <div class="revision-controls">
                             <input type="text" id="revision-instruction" placeholder="Beskriv ønskede ændringer...">
-                            <button id="revise-btn" class="btn-primary btn-compact">Send til revision</button>
+                            <button id="revise-btn" class="btn-secondary">Revider</button>
                         </div>
                     </div>
                 </div>
@@ -364,62 +348,55 @@
         <div id="preview" class="tab-content">
             <div class="generator-layout">
                 <div class="left-panel" id="texts-left-panel">
-                    <section class="panel-card">
-                        <!-- Search Controls at Top -->
-                        <div class="saved-texts-header">
-                            <div>
-                                <h3>Gemte tekster</h3>
-                                <p>Filtrer og organiser dine tidligere genereringer</p>
-                            </div>
-                            <div class="preview-stats">
-                                <span id="total-texts-count">0 tekster</span>
-                                <span id="filtered-texts-count"></span>
-                            </div>
+                    <!-- Search Controls at Top -->
+                    <div class="saved-texts-header">
+                        <h3>Gemte Tekster</h3>
+                        <div class="preview-stats">
+                            <span id="total-texts-count">0 tekster</span>
+                            <span id="filtered-texts-count"></span>
                         </div>
+                    </div>
+                    
+                    <div class="search-controls">
+                        <input type="text" id="text-search" placeholder="Søg på navn...">
+                        <input type="date" id="date-from" placeholder="Fra dato">
+                        <input type="date" id="date-to" placeholder="Til dato">
+                        <select id="sort-order">
+                            <option value="newest">Nyeste først</option>
+                            <option value="oldest">Ældste først</option>
+                            <option value="alphabetical">Alfabetisk</option>
+                        </select>
+                        <button id="refresh-texts-btn" class="btn-small">Opdater</button>
+                        <button id="clear-filters-btn" class="btn-small">Ryd Filtre</button>
+                    </div>
 
-                        <div class="search-controls">
-                            <input type="text" id="text-search" placeholder="Søg på navn...">
-                            <input type="date" id="date-from" placeholder="Fra dato">
-                            <input type="date" id="date-to" placeholder="Til dato">
-                            <select id="sort-order">
-                                <option value="newest">Nyeste først</option>
-                                <option value="oldest">Ældste først</option>
-                                <option value="alphabetical">Alfabetisk</option>
-                            </select>
-                            <button id="refresh-texts-btn" class="btn-ghost">Opdater</button>
-                            <button id="clear-filters-btn" class="btn-ghost">Ryd filtre</button>
-                        </div>
-
-                        <div id="texts-list-container" class="saved-texts-list">
-                            <!-- Saved texts will be populated here -->
-                        </div>
-                    </section>
+                    <div id="texts-list-container">
+                        <!-- Saved texts will be populated here -->
+                    </div>
                 </div>
 
                 <div class="splitter" id="texts-splitter" title="Træk for at ændre størrelse på panelerne. Dobbeltklik for at nulstille til 50/50."></div>
 
                 <div class="right-panel" id="texts-right-panel">
-                    <section class="panel-card">
-                        <div class="text-preview-header">
-                            <h4>Forhåndsvisning</h4>
+                    <div class="text-preview-header">
+                        <h4>Forhåndsvisning</h4>
+                    </div>
+                    <div id="text-preview-content">
+                        <div class="placeholder-message">
+                            <h3>Vælg en tekst</h3>
+                            <p>Klik på en tekst i listen til venstre for at se indholdet her.</p>
+                            <ul>
+                                <li>Se fuld tekst med formatering</li>
+                                <li>Rediger direkte fra forhåndsvisning</li>
+                                <li>Kopier indhold til udklipsholder</li>
+                            </ul>
                         </div>
-                        <div id="text-preview-content" class="text-preview-card">
-                            <div class="placeholder-message">
-                                <h3>Vælg en tekst</h3>
-                                <p>Klik på en tekst i listen til venstre for at se indholdet her.</p>
-                                <ul>
-                                    <li>Se fuld tekst med formatering</li>
-                                    <li>Rediger direkte fra forhåndsvisning</li>
-                                    <li>Kopier indhold til udklipsholder</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="text-actions" style="display: none;">
-                            <button id="edit-selected-text-btn" class="btn-primary btn-compact">Rediger</button>
-                            <button id="copy-selected-text-btn" class="btn-ghost">Kopier</button>
-                            <button id="delete-selected-text-btn" class="btn-danger btn-compact">Slet</button>
-                        </div>
-                    </section>
+                    </div>
+                    <div class="text-actions" style="display: none;">
+                        <button id="edit-selected-text-btn" class="btn-primary">Rediger</button>
+                        <button id="copy-selected-text-btn" class="btn-secondary">Kopier</button>
+                        <button id="delete-selected-text-btn" class="btn-danger">Slet</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -547,7 +524,7 @@
                     <p>Upload Shopify CSV-filer og oversæt indhold til forskellige sprog</p>
                 </div>
                 <div class="translator-content">
-                    <section class="panel-card upload-section">
+                    <div class="upload-section">
                         <input type="file" id="csv-upload" accept=".csv" multiple style="display: none;">
                         <div id="csv-drop-zone" class="csv-drop-zone">
                             <div class="drop-zone-content">
@@ -555,7 +532,7 @@
                                 <div class="drop-zone-text">
                                     <strong>Træk og slip dine CSV-filer her</strong>
                                     <p>eller</p>
-                                    <button id="upload-csv-btn" class="btn-primary btn-compact">Vælg CSV-filer</button>
+                                    <button id="upload-csv-btn" class="btn-primary">Vælg CSV-filer</button>
                                 </div>
                                 <div class="drop-zone-info">
                                     <small>Understøttede formater: .csv (flere filer tilladt)</small>
@@ -565,53 +542,72 @@
                                 <!-- Uploaded files will be shown here -->
                             </div>
                         </div>
-                    </section>
-
+                    </div>
+                    
                     <!-- File Management Section -->
-                    <section id="file-management-section" class="panel-card file-management-section" style="display: none;">
+                    <div id="file-management-section" class="file-management-section" style="display: none;">
                         <div class="file-management-header">
                             <h4>Fil Oversigt</h4>
                             <div class="file-stats">
-                                <span id="total-files-count">0 filer</span> •
-                                <span id="total-rows-count">0 rækker</span> •
+                                <span id="total-files-count">0 filer</span> • 
+                                <span id="total-rows-count">0 rækker</span> • 
                                 <span id="untranslated-rows-count">0 mangler oversættelse</span>
                             </div>
                         </div>
                         <div class="file-actions">
-                            <button id="view-files-btn" class="btn-ghost">Se filer</button>
-                            <button id="filter-untranslated-btn" class="btn-primary btn-compact">Filtrer uoversatte</button>
-                            <button id="export-untranslated-btn" class="btn-shopify" disabled>Eksporter uoversatte</button>
+                            <button id="view-files-btn" class="btn-secondary">Se Filer</button>
+                            <button id="filter-untranslated-btn" class="btn-primary">Filtrer Uoversatte</button>
+                            <button id="export-untranslated-btn" class="btn-shopify" disabled>Eksporter Uoversatte</button>
                         </div>
-                    </section>
+                    </div>
 
-                    <section class="panel-card translation-controls">
+                    <!-- CSV Preview Modal -->
+                    <div id="csv-preview-modal" class="modal">
+                        <div class="modal-content large-modal">
+                            <div class="modal-header">
+                                <h3>CSV Fil Oversigt</h3>
+                                <span class="close">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <div id="csv-files-tabs" class="csv-files-tabs">
+                                    <!-- File tabs will be generated here -->
+                                </div>
+                                <div id="csv-preview-content" class="csv-preview-content">
+                                    <!-- CSV content will be shown here -->
+                                </div>
+                            </div>
+                            <div class="modal-actions">
+                                <button id="close-preview-btn" class="btn-secondary">Luk</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="translation-controls">
                         <div class="form-group">
                             <label>Sprog til oversættelse:</label>
                             <div class="language-selection">
-                                <label class="checkbox-pill"><input type="checkbox" value="en"><span>Engelsk</span></label>
-                                <label class="checkbox-pill"><input type="checkbox" value="de"><span>Tysk</span></label>
-                                <label class="checkbox-pill"><input type="checkbox" value="fr"><span>Fransk</span></label>
-                                <label class="checkbox-pill"><input type="checkbox" value="es"><span>Spansk</span></label>
-                                <label class="checkbox-pill"><input type="checkbox" value="it"><span>Italiensk</span></label>
-                                <label class="checkbox-pill"><input type="checkbox" value="sv"><span>Svensk</span></label>
-                                <label class="checkbox-pill"><input type="checkbox" value="no"><span>Norsk</span></label>
+                                <label><input type="checkbox" value="en"> Engelsk</label>
+                                <label><input type="checkbox" value="de"> Tysk</label>
+                                <label><input type="checkbox" value="fr"> Fransk</label>
+                                <label><input type="checkbox" value="es"> Spansk</label>
+                                <label><input type="checkbox" value="it"> Italiensk</label>
+                                <label><input type="checkbox" value="sv"> Svensk</label>
+                                <label><input type="checkbox" value="no"> Norsk</label>
                             </div>
                         </div>
-                        <div class="translation-action-buttons">
-                            <button id="start-translation-btn" class="btn-primary" disabled>Start oversættelse</button>
-                            <button id="download-translated-btn" class="btn-ghost" disabled>Download oversat CSV</button>
+                        <button id="start-translation-btn" class="btn-primary" disabled>Start Oversættelse</button>
+                        <button id="download-translated-btn" class="btn-secondary" disabled>Download Oversat CSV</button>
+                    </div>
+                    <div class="translation-progress">
+                        <div id="translation-progress-bar" class="progress-bar" style="display: none;">
+                            <div class="progress-fill"></div>
                         </div>
-                        <div class="translation-progress">
-                            <div id="translation-progress-bar" class="progress-bar" style="display: none;">
-                                <div class="progress-fill"></div>
-                            </div>
-                            <div id="translation-status"></div>
-                        </div>
-                    </section>
+                        <div id="translation-status"></div>
+                    </div>
                 </div>
 
                 <!-- Quick Text Translator -->
-                <section class="panel-card quick-translator-section">
+                <div class="quick-translator-section">
                     <div class="quick-translator-header">
                         <h4>Hurtig Tekstoversætter</h4>
                         <p>Oversæt tekst direkte uden CSV-fil</p>
@@ -636,8 +632,8 @@
                                 <option value="ru">Russisk</option>
                             </select>
                         </div>
-                        <button id="quick-translate-btn" class="btn-primary btn-compact" disabled>Oversæt</button>
-                        <button id="clear-translation-btn" class="btn-ghost">Ryd</button>
+                        <button id="quick-translate-btn" class="btn-primary" disabled>Oversæt</button>
+                        <button id="clear-translation-btn" class="btn-secondary">Ryd</button>
                     </div>
 
                     <!-- Side-by-side Translation Area -->
@@ -671,7 +667,7 @@
                         </div>
                         <div class="progress-text">Oversætter...</div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </div>
