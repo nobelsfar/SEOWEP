@@ -4,165 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professionel SEO IndholdsGenerator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v={{ cache_bust }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🚀 Professionel SEO IndholdsGenerator</h1>
-            <div class="profile-status">
-                <span id="current-profile">Ingen profil valgt</span>
-                <button id="settings-btn" class="btn-secondary">⚙️ Indstillinger</button>
+        <header class="app-header">
+            <div class="brand">
+                <span class="brand-badge" aria-hidden="true"><i class="fas fa-chart-line"></i></span>
+                <div class="brand-copy">
+                    <h1>Professionel SEO IndholdsGenerator</h1>
+                    <p>Designet til at skabe gennemarbejdet indhold med et moderne arbejdsflow</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <span class="profile-chip"><i class="fas fa-user-circle" aria-hidden="true"></i><span id="current-profile">Ingen profil valgt</span></span>
+                <button id="settings-btn" class="btn-ghost"><i class="fas fa-sliders-h" aria-hidden="true"></i><span>Indstillinger</span></button>
             </div>
         </header>
 
         <div class="tabs">
-            <button class="tab-btn active" data-tab="generator">📝 SEO Generator</button>
-                            <button class="tab-btn" data-tab="preview">📚 Gemte Tekster</button>
-            <button class="tab-btn" data-tab="profiles">👤 Profiler</button>
-            <button class="tab-btn" data-tab="translator">🌍 Oversætter</button>
+            <button class="tab-btn active" data-tab="generator">SEO Generator</button>
+                            <button class="tab-btn" data-tab="preview">Gemte Tekster</button>
+            <button class="tab-btn" data-tab="profiles">Profiler</button>
+            <button class="tab-btn" data-tab="translator">Oversætter</button>
         </div>
 
         <!-- SEO Generator Tab -->
         <div id="generator" class="tab-content active">
             <div class="generator-layout">
                 <div class="left-panel" id="left-panel">
-                    <!-- Keywords Section -->
-                    <div class="form-group">
-                        <label for="keywords">Nøgleord (påkrævet):</label>
-                        <input type="text" id="keywords" placeholder="Indtast primære nøgleord..." required>
-                    </div>
-
-                    <!-- Secondary Keywords -->
-                    <div class="form-group">
-                        <label for="secondary-keywords">Sekundære nøgleord:</label>
-                        <input type="text" id="secondary-keywords" placeholder="Kommaseparerede nøgleord...">
-                    </div>
-
-                    <!-- LSI Keywords -->
-                    <div class="form-group">
-                        <label for="lsi-keywords">LSI Nøgleord:</label>
-                        <input type="text" id="lsi-keywords" placeholder="Relaterede nøgleord...">
-                    </div>
-
-                    <!-- Content Settings -->
-                    <div class="form-group">
-                        <label for="target-audience">Målgruppe:</label>
-                        <select id="target-audience">
-                            <option value="Alle">Alle</option>
-                            <option value="B2B">B2B</option>
-                            <option value="B2C">B2C</option>
-                            <option value="Håndværkere">Håndværkere</option>
-                            <option value="Forbrugere">Forbrugere</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="content-purpose">Formål:</label>
-                        <select id="content-purpose">
-                            <option value="Informativ">Informativ</option>
-                            <option value="Salgsorienteret">Salgsorienteret</option>
-                            <option value="Vejledning">Vejledning</option>
-                            <option value="Sammenligning">Sammenligning</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="content-type">Indholdstype:</label>
-                        <select id="content-type">
-                            <option value="Produktbeskrivelse">Produktbeskrivelse</option>
-                            <option value="Features & Benefits">Features & Benefits</option>
-                            <option value="How-to guide">How-to guide</option>
-                            <option value="Comparison">Sammenligning</option>
-                            <option value="Expert analysis">Ekspertanalyse</option>
-                        </select>
-                    </div>
-
-                    <!-- Custom Instructions -->
-                    <div class="form-group">
-                        <label for="custom-instructions">Generelle Instruktioner:</label>
-                        <textarea id="custom-instructions" rows="3" placeholder="Indtast specifikke instruktioner til AI'en..."></textarea>
-                    </div>
-
-                    <!-- Text Length -->
-                    <div class="form-group">
-                        <label for="text-length">Ønsket tekstlængde (ord):</label>
-                        <input type="number" id="text-length" min="100" max="5000" value="500">
-                    </div>
-
-                    <!-- SEO Features -->
-                    <div class="form-group">
-                        <label>SEO Features:</label>
-                        <div class="checkbox-group">
-                                                            <label><input type="checkbox" id="include-meta"> Meta beskrivelse</label>
-                                <label><input type="checkbox" id="include-keywords"> Keyword integration</label>
-                                <label><input type="checkbox" id="include-faq"> FAQ sektion</label>
-                                <label><input type="checkbox" id="include-cta"> Call-to-action</label>
-                                <label><input type="checkbox" id="include-schema"> Schema markup</label>
-                                <label><input type="checkbox" id="include-internal-links"> Interne links</label>
+                    <section class="panel-card">
+                        <div class="panel-card-header">
+                            <h2>Strategi & nøgleord</h2>
+                            <p>Definér fokus og vigtige begreber for teksten</p>
                         </div>
-                    </div>
+                        <div class="field-grid two-column">
+                            <div class="form-group full-span">
+                                <label for="keywords">Nøgleord (påkrævet)</label>
+                                <input type="text" id="keywords" placeholder="Indtast primære nøgleord..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="secondary-keywords">Sekundære nøgleord</label>
+                                <input type="text" id="secondary-keywords" placeholder="Kommaseparerede nøgleord...">
+                            </div>
+                            <div class="form-group">
+                                <label for="lsi-keywords">LSI nøgleord</label>
+                                <input type="text" id="lsi-keywords" placeholder="Relaterede nøgleord...">
+                            </div>
+                            <div class="form-group full-span">
+                                <label for="custom-instructions">Generelle instruktioner</label>
+                                <textarea id="custom-instructions" rows="3" placeholder="Indtast specifikke instruktioner til AI'en..."></textarea>
+                            </div>
+                        </div>
+                    </section>
 
-                    <!-- Product Selection -->
-                    <div class="form-group">
-                        <label>Inkluder Produkter:</label>
+                    <section class="panel-card">
+                        <div class="panel-card-header">
+                            <h2>Indholdsopsætning</h2>
+                            <p>Finjustér målgruppe, tone og længde</p>
+                        </div>
+                        <div class="field-grid two-column">
+                            <div class="form-group">
+                                <label for="target-audience">Målgruppe</label>
+                                <select id="target-audience">
+                                    <option value="Alle">Alle</option>
+                                    <option value="B2B">B2B</option>
+                                    <option value="B2C">B2C</option>
+                                    <option value="Håndværkere">Håndværkere</option>
+                                    <option value="Forbrugere">Forbrugere</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="content-purpose">Formål</label>
+                                <select id="content-purpose">
+                                    <option value="Informativ">Informativ</option>
+                                    <option value="Salgsorienteret">Salgsorienteret</option>
+                                    <option value="Vejledning">Vejledning</option>
+                                    <option value="Sammenligning">Sammenligning</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="content-type">Indholdstype</label>
+                                <select id="content-type">
+                                    <option value="Produktbeskrivelse">Produktbeskrivelse</option>
+                                    <option value="Features & Benefits">Features & Benefits</option>
+                                    <option value="How-to guide">How-to guide</option>
+                                    <option value="Comparison">Sammenligning</option>
+                                    <option value="Expert analysis">Ekspertanalyse</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="text-length">Ønsket tekstlængde (ord)</label>
+                                <input type="number" id="text-length" min="100" max="5000" value="500">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel-card">
+                        <div class="panel-card-header">
+                            <h2>SEO elementer</h2>
+                            <p>Tilføj ekstra komponenter til din tekst</p>
+                        </div>
+                        <div class="checkbox-group">
+                            <label class="checkbox-pill"><input type="checkbox" id="include-meta"><span>Meta beskrivelse</span></label>
+                            <label class="checkbox-pill"><input type="checkbox" id="include-keywords"><span>Keyword integration</span></label>
+                            <label class="checkbox-pill"><input type="checkbox" id="include-faq"><span>FAQ sektion</span></label>
+                            <label class="checkbox-pill"><input type="checkbox" id="include-cta"><span>Call-to-action</span></label>
+                            <label class="checkbox-pill"><input type="checkbox" id="include-schema"><span>Schema markup</span></label>
+                            <label class="checkbox-pill"><input type="checkbox" id="include-internal-links"><span>Interne links</span></label>
+                        </div>
+                    </section>
+
+                    <section class="panel-card">
+                        <div class="panel-card-header">
+                            <h2>Produkter</h2>
+                            <p>Vælg hvilke produkter der skal fremhæves i teksten</p>
+                        </div>
                         <div id="product-selection" class="product-list">
                             <!-- Products will be populated here -->
                         </div>
-                    </div>
+                    </section>
 
-                    <!-- Generate Buttons -->
-                    <div class="button-group">
-                        <button id="generate-btn" type="button" class="generate-btn">
-                            <span class="btn-text">Generer SEO Tekst</span>
-                            <span class="btn-loading">Genererer...</span>
-                        </button>
-                        
-                        <!-- Batch Generate Section -->
+                    <section class="panel-card action-card">
+                        <div class="primary-actions">
+                            <button id="generate-btn" type="button" class="btn-primary generate-btn">
+                                <span class="btn-text">Generer SEO Tekst</span>
+                                <span class="btn-loading">Genererer...</span>
+                            </button>
+                        </div>
                         <div class="batch-generate-section">
                             <div class="batch-header">
-                                <h3>📦 Generer flere variationer</h3>
-                                <p>Lav flere forskellige tekster på en gang med automatisk variation</p>
+                                <h3>Generer flere variationer</h3>
+                                <p>Lav flere forskellige tekster på én gang med automatisk variation</p>
                             </div>
                             <div class="batch-controls">
-                                <label for="batch-count">Antal tekster:</label>
+                                <label for="batch-count">Antal tekster</label>
                                 <select id="batch-count">
                                     <option value="2">2 variationer</option>
                                     <option value="3" selected>3 variationer</option>
                                     <option value="4">4 variationer</option>
                                     <option value="5">5 variationer</option>
                                 </select>
-                                <button id="batch-generate-btn" type="button" class="batch-generate-btn">
-                                    <span class="btn-text">🚀 Generer Batch</span>
+                                <button id="batch-generate-btn" type="button" class="btn-secondary batch-generate-btn">
+                                    <span class="btn-text">Generer batch</span>
                                     <span class="btn-loading">Genererer variationer...</span>
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
 
                 <div class="splitter" id="splitter" title="Træk for at ændre størrelse på panelerne. Dobbeltklik for at nulstille til 50/50."></div>
 
                 <div class="right-panel" id="right-panel">
                     <!-- Preview Section (moved from Preview tab) -->
-                    <div class="preview-section">
+                    <div class="panel-card preview-section">
                         <div class="preview-header">
-                            <h3>🌐 Forhåndsvisning</h3>
+                            <div class="preview-title">
+                                <h3>Forhåndsvisning</h3>
+                                <p>Arbejd videre med dine genererede tekster, og gem eller eksportér dem direkte</p>
+                            </div>
                             <div class="preview-controls">
                                 <select id="preview-selector">
                                     <option value="">Vælg tekst at redigere...</option>
                                 </select>
-                                <button id="clear-preview-btn" class="btn-small">🗑️ Ryd Liste</button>
-                                <button id="copy-text-btn" class="btn-small">📋 Kopier Tekst</button>
-                                <button id="copy-html-btn" class="btn-small">📋 Kopier HTML</button>
-                                <button id="save-text-btn" class="btn-small">💾 Gem Tekst</button>
-                                <button id="insert-image-btn" class="btn-small">🖼️ Vælg Hovedbillede</button>
+                                <button id="clear-preview-btn" class="btn-ghost">Ryd liste</button>
+                                <button id="copy-text-btn" class="btn-ghost">Kopier tekst</button>
+                                <button id="copy-html-btn" class="btn-ghost">Kopier HTML</button>
+                                <button id="save-text-btn" class="btn-primary btn-compact">Gem tekst</button>
+                                <button id="insert-image-btn" class="btn-ghost">Vælg hovedbillede</button>
                             </div>
-                            <div id="featured-image-indicator" class="featured-image-indicator" style="display: none;">
-                                <span>📸 Hovedbillede valgt: <span id="featured-image-title"></span></span>
-                                <button id="clear-featured-image-btn" class="btn-tiny">❌</button>
-                            </div>
+                        </div>
+                        <div id="featured-image-indicator" class="featured-image-indicator" style="display: none;">
+                            <span>Hovedbillede valgt: <span id="featured-image-title"></span></span>
+                            <button id="clear-featured-image-btn" class="btn-ghost btn-tiny" aria-label="Fjern valgt billede">Fjern</button>
                         </div>
 
                         <!-- Website Preview with Editing -->
@@ -247,26 +266,26 @@
                                 <!-- Alignment Group -->
                                 <div class="toolbar-group">
                                     <button type="button" class="toolbar-btn" data-command="justifyLeft" title="Venstrejuster">
-                                        ⬅
+                                        <i class="fas fa-align-left" aria-hidden="true"></i>
                                     </button>
                                     <button type="button" class="toolbar-btn" data-command="justifyCenter" title="Centrer">
-                                        ↔
+                                        <i class="fas fa-align-center" aria-hidden="true"></i>
                                     </button>
                                     <button type="button" class="toolbar-btn" data-command="justifyRight" title="Højrejuster">
-                                        ➡
+                                        <i class="fas fa-align-right" aria-hidden="true"></i>
                                     </button>
                                     <button type="button" class="toolbar-btn" data-command="justifyFull" title="Blokjuster">
-                                        =
+                                        <i class="fas fa-align-justify" aria-hidden="true"></i>
                                     </button>
                                 </div>
                                 
                                 <!-- Tools Group -->
                                 <div class="toolbar-group">
                                     <button type="button" class="toolbar-btn" data-command="createLink" title="Indsæt link">
-                                        🔗 Link
+                                        Link
                                     </button>
                                     <button type="button" class="toolbar-btn" data-command="removeFormat" title="Fjern formatering">
-                                        🧹 Ryd
+                                        Ryd
                                     </button>
                                 </div>
                             </div>
@@ -275,7 +294,7 @@
                             <div class="ai-toolbar">
                                 <div class="ai-toolbar-group">
                                     <label>AI Redigering:</label>
-                                    <small class="ai-help-text">💡 Marker tekst først, derefter klik på en funktion</small>
+                                    <small class="ai-help-text">Marker tekst først, derefter klik på en funktion</small>
                                     <button type="button" class="ai-btn" data-command="Forkort" title="Bed AI om at forkorte teksten">
                                         Forkort
                                     </button>
@@ -322,19 +341,19 @@
                         </div>
 
                         <div class="preview-actions">
-                            <button id="toggle-edit-mode-btn" class="btn-secondary">✏️ Rediger</button>
-                            <button id="save-edited-text-btn" class="btn-primary" style="display: none;">💾 Gem Redigeret Tekst</button>
-                            <button id="copy-preview-html-btn" class="btn-secondary">📋 Kopier HTML</button>
-                            <button id="upload-to-shopify-btn" class="btn-shopify">🛒 Upload til Shopify</button>
+                            <button id="toggle-edit-mode-btn" class="btn-secondary">Rediger</button>
+                            <button id="save-edited-text-btn" class="btn-primary" style="display: none;">Gem Redigeret Tekst</button>
+                            <button id="copy-preview-html-btn" class="btn-secondary">Kopier HTML</button>
+                            <button id="upload-to-shopify-btn" class="btn-shopify">Upload til Shopify</button>
                         </div>
                     </div>
 
                     <!-- Revision Section -->
-                    <div class="revision-section">
-                        <h4>🔧 Revider Tekst</h4>
+                    <div class="panel-card revision-section">
+                        <h4>Revider tekst</h4>
                         <div class="revision-controls">
                             <input type="text" id="revision-instruction" placeholder="Beskriv ønskede ændringer...">
-                            <button id="revise-btn" class="btn-secondary">Revider</button>
+                            <button id="revise-btn" class="btn-primary btn-compact">Send til revision</button>
                         </div>
                     </div>
                 </div>
@@ -345,55 +364,62 @@
         <div id="preview" class="tab-content">
             <div class="generator-layout">
                 <div class="left-panel" id="texts-left-panel">
-                    <!-- Search Controls at Top -->
-                    <div class="saved-texts-header">
-                        <h3>📚 Gemte Tekster</h3>
-                        <div class="preview-stats">
-                            <span id="total-texts-count">0 tekster</span>
-                            <span id="filtered-texts-count"></span>
+                    <section class="panel-card">
+                        <!-- Search Controls at Top -->
+                        <div class="saved-texts-header">
+                            <div>
+                                <h3>Gemte tekster</h3>
+                                <p>Filtrer og organiser dine tidligere genereringer</p>
+                            </div>
+                            <div class="preview-stats">
+                                <span id="total-texts-count">0 tekster</span>
+                                <span id="filtered-texts-count"></span>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="search-controls">
-                        <input type="text" id="text-search" placeholder="🔍 Søg på navn...">
-                        <input type="date" id="date-from" placeholder="Fra dato">
-                        <input type="date" id="date-to" placeholder="Til dato">
-                        <select id="sort-order">
-                            <option value="newest">Nyeste først</option>
-                            <option value="oldest">Ældste først</option>
-                            <option value="alphabetical">Alfabetisk</option>
-                        </select>
-                        <button id="refresh-texts-btn" class="btn-small">🔄 Opdater</button>
-                        <button id="clear-filters-btn" class="btn-small">🧹 Ryd Filtre</button>
-                    </div>
 
-                    <div id="texts-list-container">
-                        <!-- Saved texts will be populated here -->
-                    </div>
+                        <div class="search-controls">
+                            <input type="text" id="text-search" placeholder="Søg på navn...">
+                            <input type="date" id="date-from" placeholder="Fra dato">
+                            <input type="date" id="date-to" placeholder="Til dato">
+                            <select id="sort-order">
+                                <option value="newest">Nyeste først</option>
+                                <option value="oldest">Ældste først</option>
+                                <option value="alphabetical">Alfabetisk</option>
+                            </select>
+                            <button id="refresh-texts-btn" class="btn-ghost">Opdater</button>
+                            <button id="clear-filters-btn" class="btn-ghost">Ryd filtre</button>
+                        </div>
+
+                        <div id="texts-list-container" class="saved-texts-list">
+                            <!-- Saved texts will be populated here -->
+                        </div>
+                    </section>
                 </div>
 
                 <div class="splitter" id="texts-splitter" title="Træk for at ændre størrelse på panelerne. Dobbeltklik for at nulstille til 50/50."></div>
 
                 <div class="right-panel" id="texts-right-panel">
-                    <div class="text-preview-header">
-                        <h4>📄 Forhåndsvisning</h4>
-                    </div>
-                    <div id="text-preview-content">
-                        <div class="placeholder-message">
-                            <h3>👈 Vælg en tekst</h3>
-                            <p>Klik på en tekst i listen til venstre for at se indholdet her.</p>
-                            <ul>
-                                <li>Se fuld tekst med formatering</li>
-                                <li>Rediger direkte fra forhåndsvisning</li>
-                                <li>Kopier indhold til udklipsholder</li>
-                            </ul>
+                    <section class="panel-card">
+                        <div class="text-preview-header">
+                            <h4>Forhåndsvisning</h4>
                         </div>
-                    </div>
-                    <div class="text-actions" style="display: none;">
-                        <button id="edit-selected-text-btn" class="btn-primary">✏️ Rediger</button>
-                        <button id="copy-selected-text-btn" class="btn-secondary">📋 Kopier</button>
-                        <button id="delete-selected-text-btn" class="btn-danger">🗑️ Slet</button>
-                    </div>
+                        <div id="text-preview-content" class="text-preview-card">
+                            <div class="placeholder-message">
+                                <h3>Vælg en tekst</h3>
+                                <p>Klik på en tekst i listen til venstre for at se indholdet her.</p>
+                                <ul>
+                                    <li>Se fuld tekst med formatering</li>
+                                    <li>Rediger direkte fra forhåndsvisning</li>
+                                    <li>Kopier indhold til udklipsholder</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="text-actions" style="display: none;">
+                            <button id="edit-selected-text-btn" class="btn-primary btn-compact">Rediger</button>
+                            <button id="copy-selected-text-btn" class="btn-ghost">Kopier</button>
+                            <button id="delete-selected-text-btn" class="btn-danger btn-compact">Slet</button>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -402,19 +428,19 @@
         <div id="profiles" class="tab-content">
             <!-- Sub-tabs for Profiles section -->
             <div class="profile-tabs">
-                <button class="profile-tab-btn active" data-profile-tab="profile-details">👤 Profil Detaljer</button>
-                <button class="profile-tab-btn" data-profile-tab="products">📦 Produkter</button>
+                <button class="profile-tab-btn active" data-profile-tab="profile-details">Profil Detaljer</button>
+                <button class="profile-tab-btn" data-profile-tab="products">Produkter</button>
             </div>
 
             <!-- Profile Details Tab -->
             <div id="profile-details-tab" class="profile-tab-content active">
                 <div class="profiles-layout">
                     <div class="profiles-sidebar">
-                        <h3>👤 Profiler</h3>
+                        <h3>Profiler</h3>
                         <div class="profile-actions">
-                            <button id="add-profile-btn" class="btn-primary">➕ Ny Profil</button>
-                            <button id="import-profiles-btn" class="btn-secondary">📥 Importer</button>
-                            <button id="export-profiles-btn" class="btn-secondary">📤 Eksporter</button>
+                            <button id="add-profile-btn" class="btn-primary"><i class="fas fa-plus" aria-hidden="true"></i><span> Ny Profil</span></button>
+                            <button id="import-profiles-btn" class="btn-secondary">Importer</button>
+                            <button id="export-profiles-btn" class="btn-secondary">Eksporter</button>
                         </div>
                         <div id="profiles-list" class="profiles-list">
                             <!-- Profiles will be populated here -->
@@ -460,7 +486,7 @@
                         
                         <!-- Shopify Integration Section -->
                         <div class="shopify-section">
-                            <h4>🛒 Shopify Integration</h4>
+                            <h4>Shopify Integration</h4>
                             <div class="form-group">
                                 <label for="profile-shopify-store-url">Shopify Butik URL:</label>
                                 <input type="text" id="profile-shopify-store-url" placeholder="din-butik.myshopify.com">
@@ -481,14 +507,14 @@
                                 </select>
                             </div>
                             <div class="shopify-actions">
-                                <button id="test-shopify-connection-btn" class="btn-secondary">🔗 Test Shopify Forbindelse</button>
-                                <button id="browse-shopify-images-btn" class="btn-secondary">🖼️ Gennemse Shopify Billeder</button>
+                                <button id="test-shopify-connection-btn" class="btn-secondary">Test Shopify Forbindelse</button>
+                                <button id="browse-shopify-images-btn" class="btn-secondary">Gennemse Shopify Billeder</button>
                             </div>
                         </div>
                         
                         <div class="profile-actions">
-                            <button id="save-profile-btn" class="btn-primary">💾 Gem Profil</button>
-                            <button id="delete-profile-btn" class="btn-danger">🗑️ Slet Profil</button>
+                            <button id="save-profile-btn" class="btn-primary">Gem Profil</button>
+                            <button id="delete-profile-btn" class="btn-danger">Slet Profil</button>
                         </div>
                         </div>
                     </div>
@@ -498,10 +524,10 @@
             <!-- Products Tab -->
             <div id="products-profile-tab" class="profile-tab-content">
                 <div class="products-header">
-                    <h3>📦 Produkter for <span id="current-profile-name">Valgt Profil</span></h3>
+                    <h3>Produkter for <span id="current-profile-name">Valgt Profil</span></h3>
                     <div class="product-actions">
-                        <button id="add-product-btn" class="btn-primary">➕ Tilføj Produkt</button>
-                        <button id="fetch-urls-btn" class="btn-secondary">🌐 Hent fra URL'er</button>
+                        <button id="add-product-btn" class="btn-primary"><i class="fas fa-plus" aria-hidden="true"></i><span> Tilføj Produkt</span></button>
+                        <button id="fetch-urls-btn" class="btn-secondary">Hent fra URL'er</button>
                     </div>
                 </div>
                 <div id="products-list" class="products-grid">
@@ -517,19 +543,19 @@
         <div id="translator" class="tab-content">
             <div class="translator-layout">
                 <div class="translator-header">
-                    <h3>🌍 Oversætter</h3>
+                    <h3>Oversætter</h3>
                     <p>Upload Shopify CSV-filer og oversæt indhold til forskellige sprog</p>
                 </div>
                 <div class="translator-content">
-                    <div class="upload-section">
+                    <section class="panel-card upload-section">
                         <input type="file" id="csv-upload" accept=".csv" multiple style="display: none;">
                         <div id="csv-drop-zone" class="csv-drop-zone">
                             <div class="drop-zone-content">
-                                <div class="drop-zone-icon">📁</div>
+                                <div class="drop-zone-icon"><i class="fas fa-cloud-upload-alt" aria-hidden="true"></i></div>
                                 <div class="drop-zone-text">
                                     <strong>Træk og slip dine CSV-filer her</strong>
                                     <p>eller</p>
-                                    <button id="upload-csv-btn" class="btn-primary">📁 Vælg CSV-filer</button>
+                                    <button id="upload-csv-btn" class="btn-primary btn-compact">Vælg CSV-filer</button>
                                 </div>
                                 <div class="drop-zone-info">
                                     <small>Understøttede formater: .csv (flere filer tilladt)</small>
@@ -539,74 +565,55 @@
                                 <!-- Uploaded files will be shown here -->
                             </div>
                         </div>
-                    </div>
-                    
+                    </section>
+
                     <!-- File Management Section -->
-                    <div id="file-management-section" class="file-management-section" style="display: none;">
+                    <section id="file-management-section" class="panel-card file-management-section" style="display: none;">
                         <div class="file-management-header">
-                            <h4>📋 Fil Oversigt</h4>
+                            <h4>Fil Oversigt</h4>
                             <div class="file-stats">
-                                <span id="total-files-count">0 filer</span> • 
-                                <span id="total-rows-count">0 rækker</span> • 
+                                <span id="total-files-count">0 filer</span> •
+                                <span id="total-rows-count">0 rækker</span> •
                                 <span id="untranslated-rows-count">0 mangler oversættelse</span>
                             </div>
                         </div>
                         <div class="file-actions">
-                            <button id="view-files-btn" class="btn-secondary">👁️ Se Filer</button>
-                            <button id="filter-untranslated-btn" class="btn-primary">🔍 Filtrer Uoversatte</button>
-                            <button id="export-untranslated-btn" class="btn-shopify" disabled>📤 Eksporter Uoversatte</button>
+                            <button id="view-files-btn" class="btn-ghost">Se filer</button>
+                            <button id="filter-untranslated-btn" class="btn-primary btn-compact">Filtrer uoversatte</button>
+                            <button id="export-untranslated-btn" class="btn-shopify" disabled>Eksporter uoversatte</button>
                         </div>
-                    </div>
+                    </section>
 
-                    <!-- CSV Preview Modal -->
-                    <div id="csv-preview-modal" class="modal">
-                        <div class="modal-content large-modal">
-                            <div class="modal-header">
-                                <h3>📋 CSV Fil Oversigt</h3>
-                                <span class="close">&times;</span>
-                            </div>
-                            <div class="modal-body">
-                                <div id="csv-files-tabs" class="csv-files-tabs">
-                                    <!-- File tabs will be generated here -->
-                                </div>
-                                <div id="csv-preview-content" class="csv-preview-content">
-                                    <!-- CSV content will be shown here -->
-                                </div>
-                            </div>
-                            <div class="modal-actions">
-                                <button id="close-preview-btn" class="btn-secondary">Luk</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="translation-controls">
+                    <section class="panel-card translation-controls">
                         <div class="form-group">
                             <label>Sprog til oversættelse:</label>
                             <div class="language-selection">
-                                <label><input type="checkbox" value="en"> Engelsk</label>
-                                <label><input type="checkbox" value="de"> Tysk</label>
-                                <label><input type="checkbox" value="fr"> Fransk</label>
-                                <label><input type="checkbox" value="es"> Spansk</label>
-                                <label><input type="checkbox" value="it"> Italiensk</label>
-                                <label><input type="checkbox" value="sv"> Svensk</label>
-                                <label><input type="checkbox" value="no"> Norsk</label>
+                                <label class="checkbox-pill"><input type="checkbox" value="en"><span>Engelsk</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="de"><span>Tysk</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="fr"><span>Fransk</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="es"><span>Spansk</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="it"><span>Italiensk</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="sv"><span>Svensk</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="no"><span>Norsk</span></label>
                             </div>
                         </div>
-                        <button id="start-translation-btn" class="btn-primary" disabled>🚀 Start Oversættelse</button>
-                        <button id="download-translated-btn" class="btn-secondary" disabled>💾 Download Oversat CSV</button>
-                    </div>
-                    <div class="translation-progress">
-                        <div id="translation-progress-bar" class="progress-bar" style="display: none;">
-                            <div class="progress-fill"></div>
+                        <div class="translation-action-buttons">
+                            <button id="start-translation-btn" class="btn-primary" disabled>Start oversættelse</button>
+                            <button id="download-translated-btn" class="btn-ghost" disabled>Download oversat CSV</button>
                         </div>
-                        <div id="translation-status"></div>
-                    </div>
+                        <div class="translation-progress">
+                            <div id="translation-progress-bar" class="progress-bar" style="display: none;">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <div id="translation-status"></div>
+                        </div>
+                    </section>
                 </div>
 
                 <!-- Quick Text Translator -->
-                <div class="quick-translator-section">
+                <section class="panel-card quick-translator-section">
                     <div class="quick-translator-header">
-                        <h4>⚡ Hurtig Tekstoversætter</h4>
+                        <h4>Hurtig Tekstoversætter</h4>
                         <p>Oversæt tekst direkte uden CSV-fil</p>
                     </div>
                     
@@ -615,22 +622,22 @@
                         <div class="language-select-group">
                             <label for="target-language-select">Oversæt til:</label>
                             <select id="target-language-select">
-                                <option value="en">🇬🇧 Engelsk</option>
-                                <option value="de">🇩🇪 Tysk</option>
-                                <option value="fr">🇫🇷 Fransk</option>
-                                <option value="es">🇪🇸 Spansk</option>
-                                <option value="it">🇮🇹 Italiensk</option>
-                                <option value="sv">🇸🇪 Svensk</option>
-                                <option value="no">🇳🇴 Norsk</option>
-                                <option value="nl">🇳🇱 Hollandsk</option>
-                                <option value="fi">🇫🇮 Finsk</option>
-                                <option value="pl">🇵🇱 Polsk</option>
-                                <option value="pt">🇵🇹 Portugisisk</option>
-                                <option value="ru">🇷🇺 Russisk</option>
+                                <option value="en">Engelsk</option>
+                                <option value="de">Tysk</option>
+                                <option value="fr">Fransk</option>
+                                <option value="es">Spansk</option>
+                                <option value="it">Italiensk</option>
+                                <option value="sv">Svensk</option>
+                                <option value="no">Norsk</option>
+                                <option value="nl">Hollandsk</option>
+                                <option value="fi">Finsk</option>
+                                <option value="pl">Polsk</option>
+                                <option value="pt">Portugisisk</option>
+                                <option value="ru">Russisk</option>
                             </select>
                         </div>
-                        <button id="quick-translate-btn" class="btn-primary" disabled>🚀 Oversæt</button>
-                        <button id="clear-translation-btn" class="btn-secondary">🗑️ Ryd</button>
+                        <button id="quick-translate-btn" class="btn-primary btn-compact" disabled>Oversæt</button>
+                        <button id="clear-translation-btn" class="btn-ghost">Ryd</button>
                     </div>
 
                     <!-- Side-by-side Translation Area -->
@@ -638,7 +645,7 @@
                         <!-- Left Panel - Input -->
                         <div class="translation-panel input-panel">
                             <div class="panel-header">
-                                <h5>📝 Tekst der skal oversættes</h5>
+                                <h5>Tekst der skal oversættes</h5>
                                 <small id="input-char-count">0 tegn</small>
                             </div>
                             <textarea id="quick-translate-input" placeholder="Indsæt din tekst her..." rows="12"></textarea>
@@ -647,10 +654,10 @@
                         <!-- Right Panel - Output -->
                         <div class="translation-panel output-panel">
                             <div class="panel-header">
-                                <h5>🌍 Oversættelse</h5>
+                                <h5>Oversættelse</h5>
                                 <div class="output-actions">
                                     <small id="output-char-count">0 tegn</small>
-                                    <button id="copy-translation-btn" class="btn-tiny">📋 Kopier</button>
+                                    <button id="copy-translation-btn" class="btn-tiny">Kopier</button>
                                 </div>
                             </div>
                             <textarea id="quick-translate-output" readonly rows="12" placeholder="Oversættelsen vises her..."></textarea>
@@ -664,7 +671,7 @@
                         </div>
                         <div class="progress-text">Oversætter...</div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </div>
@@ -673,7 +680,7 @@
     <div id="settings-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>⚙️ Indstillinger</h3>
+                <h3><i class="fas fa-sliders-h" aria-hidden="true"></i><span> Indstillinger</span></h3>
                 <span class="close">&times;</span>
             </div>
             <div class="modal-body">
@@ -690,7 +697,7 @@
     <div id="product-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="product-modal-title">➕ Tilføj Produkt</h3>
+                <h3 id="product-modal-title"><i class="fas fa-plus" aria-hidden="true"></i><span> Tilføj Produkt</span></h3>
                 <span class="close">&times;</span>
             </div>
             <div class="modal-body">
@@ -712,7 +719,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="save-product-btn" class="btn-primary">💾 Gem Produkt</button>
+                <button id="save-product-btn" class="btn-primary">Gem Produkt</button>
                 <button id="cancel-product-btn" class="btn-secondary">Annuller</button>
             </div>
         </div>
@@ -743,20 +750,20 @@
     <div id="image-modal" class="modal">
         <div class="modal-content large-modal">
             <div class="modal-header">
-                <h3>🖼️ Vælg Billede</h3>
+                <h3>Vælg Billede</h3>
                 <span class="close">&times;</span>
             </div>
             <div class="modal-body">
                 <div class="image-selection-tabs">
-                    <button class="image-tab-btn active" data-tab="upload">📁 Upload Billede</button>
-                    <button class="image-tab-btn" data-tab="shopify">🛒 Shopify Billeder</button>
+                    <button class="image-tab-btn active" data-tab="upload">Upload Billede</button>
+                    <button class="image-tab-btn" data-tab="shopify">Shopify Billeder</button>
                 </div>
                 
                 <!-- Upload Tab -->
                 <div id="upload-tab" class="image-tab-content active">
                     <div class="upload-section">
                         <input type="file" id="image-upload" accept="image/*" style="display: none;">
-                        <button id="upload-image-btn" class="btn-primary">📁 Vælg Billede</button>
+                        <button id="upload-image-btn" class="btn-primary">Vælg Billede</button>
                         <div id="upload-preview" class="upload-preview" style="display: none;">
                             <img id="upload-preview-img" src="" alt="Preview">
                             <div class="upload-info">
@@ -786,7 +793,7 @@
                     <div class="shopify-images-header">
                         <div class="search-section">
                             <input type="text" id="shopify-image-search" placeholder="Søg efter produktnavn eller alt-tekst...">
-                            <button id="refresh-shopify-images-btn" class="btn-secondary">🔄 Opdater</button>
+                            <button id="refresh-shopify-images-btn" class="btn-secondary">Opdater</button>
                         </div>
                     </div>
                     <div id="shopify-images-grid" class="images-grid">
@@ -816,16 +823,16 @@
 
     <!-- Batch Results Section -->
     <div id="batch-results" class="batch-results">
-        <h3>📋 Genererede Variationer</h3>
+        <h3>Genererede Variationer</h3>
         <div id="batch-grid" class="batch-grid">
             <!-- Batch items will be dynamically inserted here -->
         </div>
         <div class="batch-actions">
             <button id="save-selected-btn" class="save-selected-btn" disabled>
-                💾 Gem Valgte Tekster
+                Gem Valgte Tekster
             </button>
             <button id="clear-batch-btn" class="clear-batch-btn">
-                🗑️ Ryd Batch
+                Ryd Batch
             </button>
         </div>
     </div>
